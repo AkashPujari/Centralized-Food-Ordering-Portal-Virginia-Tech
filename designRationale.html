@@ -83,26 +83,36 @@ ul.horizontal li a.active {
     <div class="col-md-12">
 
         <p>
+            Centralized Food Ordering system is a website which aims to automate the current manual process at VT dining halls which essentially costs all the dining hall managers about 2-3 hrs everyday. The website essentially will have 3 main components, Front-end, Back-end and Database. These components are essential for the working of all the 3 modules of the system which are Southgate Manager, DIning Halls and Vendor. Front End of the system is basically the UI part of the system through which the user interaction will be taken into the system and computed output will be reflected back on the UI. Database will store all the information required for the working of the website in different table formats. Back-end part of the system will cover the core logic which will compute the necessary output to satisfy all the requirements. 
+
+MVT architecture allows the website to satisfy all the functional and non-functional requirements. Functional requirements like FR1, FR2 will need database queries which fall under Model when following MVT pattern. FR3, FR4 will be using database as well as back-end logic which will be using different Views. FR6, FR7, FR8 will be using UI or front end which will be covered in different Templates. Apart from that NFR1 would use back-end as well as database, NFR7, NFR8 will take support from front-end or Templates. Thus, the MVT choice of architecture makes the job more easy and efficient. 
+
         </p>
 
         <br>
-        <h5>Function 1: </h5>
+        <h5>Function 1: Authentication Mechanism</h5>
         <p>
+            The FR1 and FR2 are related with the user authentication for the food application. User authentication is essential for every website to protect the system from non authenticated use. The authentication mechanism for our system will be based on the OAUTH 2.0 architecture. OAUTH 2.0 is supported under Django which provides inbuilt libraries for implementing the authentication. The database, will have different tables which will contain the necessary information regarding the user. The tables will differ according to roles. I.e Dining Manager table will store the information (Basically Login credentials) related to the Managers of VT dining Halls. Vendor table will contain the information related to Vendors. Whenever, user tries to login, he will have to fill a login form which will ask the user for username and password. This form will be rendered on the Front-end. Once a user presses the submit button, the information will be passed to the backend where the database will be queried to check if the login credentials match the entries present in the respective tables. If it is successful, the user will be redirected to the landing page or else he will get an alert message stating that either password or username is incorrect, please try again. 
+
         </p>
 
         <br>
-        <h5>Function 2: </h5>
+        <h5>Function 2: Ordering Forms</h5>
         <p>
+            The FR3 and FR4 are related to communicating between Dining Hall and Southgate Manager. The Southgate Manager regularly updates this form to add new products that might be available for dining halls. The database is instantly changed to reflect the new products. It also deletes non required products and the database would delete the product entry. Once the Dining Hall manager opens the form they have the option of requesting the quantity of the product. The database would update the required quantity of the item. When multiple dining halls request the same product, the database sums up the total quantity and returns it to the Southgate Manager. This helps the manager to place the correct quatity of order tot the vendor. Apart from this dining hall managers have the option of requesting southgate to add a new item that isint already available in the database. Here the request product can be directly added to the database by the southgate manager by accepting the request from the dining halls.
+
         </p>
 
         <br>
-        <h5>Function 3: </h5>
+        <h5>Function 3: Retrieving and Placing an Order</h5>
         <p>
+            The FR5 and FR8 are crucial to playing the order and confirming the order. When the orders are retrieved from the database the Southgate Manager places this order with the vendor. The vendor would receive the total order and they would then send a confirmation of what orders they can fulfill. The database would manage the updates and let the southgate manager know about the expected order. The database would automatically allocate the dining halls with the products and quantity based on the request. It would also print the labels for sending the products to the dining halls. Incase the received quantity is less than the expected quantity, based on daily consumption, the distribution algorithm would automatically assign the products to the dining halls and update the database. The dining hall managers would also be able to confirm the delivery of the product once they receive it.
         </p>
 
         <br>
-        <h5>Function 4: </h5>
+        <h5>Function 4: Vendor Portal</h5>
         <p>
+            The FR6 and FR7 deals with the vendor side of the application. The vendor needs to confirm the receipt of the order and once the vendor confirms that the portal would reflect the same. As mentioned above the algorith would sort the orders and the database would reflect the same. It would also assist in communicating between vendor and Southgate Manager for providing notes and comments on the products. All these would be stored in our database. 
         </p>
 
 

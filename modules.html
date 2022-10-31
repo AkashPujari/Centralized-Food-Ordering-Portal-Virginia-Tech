@@ -115,7 +115,7 @@ ul.horizontal li a.active {
             </li>
         </ol>
         <div style="display: flex; justify-content: center">
-            <img style="height: 66%" class="col-md-8" src="./img/Figure6.png">
+            <img style="height: 66%" class="col-md-8" src="./img/FlowChart.drawio.png">
         </div>
         <div style="display: flex; justify-content: center">
         <pre><i>(Figure 6)</i> High Level Functional Overview</pre>
@@ -132,7 +132,7 @@ ul.horizontal li a.active {
         </p>
         <ol>
             <li>
-                Southgate Manager: - this sub-module is responsible for handling all the requirements related to the Southgate Manager role. These include logging in in the system, retrieving orders at 1PM and printing labels. 
+                Southgate Manager: - this sub-module is responsible for handling all the requirements related to the Southgate Manager role. These include logging-in in the system, retrieving orders at 1PM and printing labels. 
             </li>
             <li>
                 Food App: - The food applications app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor. 
@@ -174,15 +174,19 @@ ul.horizontal li a.active {
         </p>
         <ol>
             <li>
+                Dining Hall Manager: - 
+                This sub-module is responsible for handling all the requirements related to the Dining Hall Manager Role. These include logging in in the system, retrieving orders from different food stalls inside respective dining halls and submitting the consolidated order in the food app before 1 PM.
             </li>
             <li>
+                Food App: - 
+Similar to the Southgate Manager module, the food app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor.  
+
             </li>
+            
             <li>
+                Database: - In the database, we will store the Manager Table which will contain all the necessary information for each Manager including Southgate Manager. Apart from that, we will have a table Product List which will contain all the active products which could be added to the updated product list. If there are any special orders, after checking the product list, Dining Hall Manager will request the Southgate. 
             </li>
-            <li>
-            </li>
-            <li>
-            </li>
+      
         </ol>
 
         <div style="display: flex; justify-content: center">
@@ -194,7 +198,7 @@ ul.horizontal li a.active {
         </div>
         <br>
         <p>
-            Sequence diagram text goes here
+            The Dining Hall Manager needs to verify himself before logging in the system. Oauth 2.0 will be used to verify the manager credentials in the backend by the system. Once he is successfully logged in, he will have access to the 2 HTML forms within the system. HTMLA and HTMLB. HTMLA will be used for placing the orders to the southgate. If he has any add ons or special requests, a dedicated section will be provided in the HTMLA form, where he can write comments for special requests. EVeryday, Southgate will deliver the previous day’s placed orders in the Morning. Once the orders have been received in each of the dining halls, they will verify the respective orders and then, the Dining Hall Manager will confirm the delivery of the products using HTMLB form. 
         </p>
 
         <div style="display: flex; justify-content: center">
@@ -217,14 +221,16 @@ ul.horizontal li a.active {
         </p>
         <ol>
             <li>
+                Vendor: - Vendors will have all the data related to Vendor and will try to manage the Vendor. This will include, Vendor log in, Vendor information etc.
             </li>
             <li>
+                Store: - This module will have all the information about a particular Vendors warehouse unit. What is currently present in the warehouse and stuff related to it. It will make Vendors life easy to check whether he has enough inventory in his warehouse to accept the order. 
             </li>
             <li>
+                Food App: - Similar to the Southgate Manager module, the food app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor.  
             </li>
             <li>
-            </li>
-            <li>
+                Database: - In the database, we will store the Vendor Table which will contain all the necessary information for each of the Vendors. Each Vendor will have a Store table associated which will store all the information regarding the Vendor’s warehouse. 
             </li>
         </ol>
 
@@ -237,7 +243,7 @@ ul.horizontal li a.active {
         </div>
         <br>
         <p>
-            Sequence diagram text goes here
+            The Vendor will Login in in the portal. The system will verify his credentials using Oauth 2.0 and once he is verified, he will be allowed in the system. On the Food App portal, Vendor can add and see the notes regarding the previous orders. This will be a basic asynchronous text field where Vendor or Southgate Manager can add notes. After 1PM everyday, Vendor will be notified as soon as the Southgate Manager posts the order for the next day. Vendor can go through the order list for the next day and check if he has the required produce in his warehouse. If he does, he will press the accept the order button. The confirmation will be generated for that particular Vendor (System will use Vendor ID for this) and it will be sent to Southgate Manager. 
         </p>
 
         <div style="display: flex; justify-content: center">
