@@ -97,9 +97,9 @@ We are proposing a system that heavily depends on choosing the correct architect
 
 
             </p>
-        <div style="display: flex; justify-content: center">
-                    <img style="height: 66%" class="col-md-8" src="./img/Dining-Hall.png">
-                </div>
+            <div style="display: flex; justify-content: center">
+                <img style="height: 66%" class="col-md-8" src="./img/Dining-Hall.png">
+            </div>
             <div style="display: flex; justify-content: center">
             <pre><i>(Figure 1)</i> Dining Hall</pre>
             </div>
@@ -197,7 +197,7 @@ We are proposing a system that heavily depends on choosing the correct architect
                     <p>
                         NFR-9.  There should be a dedicated printer so that the southgate manager can print the labels for the corresponding orders. 
                     </p>
-
+        </div>
                     <br>
         <h3>High-Level Design</h3>
 
@@ -271,7 +271,7 @@ We are proposing a system that heavily depends on choosing the correct architect
             </li>
         </ol>
         <div style="display: flex; justify-content: center">
-            <img style="height: 66%" class="col-md-8" src="./img/Figure6.png">
+            <img style="height: 66%" class="col-md-8" src="./img/FlowChart.drawio.png">
         </div>
         <div style="display: flex; justify-content: center">
         <pre><i>(Figure 6)</i> High Level Functional Overview</pre>
@@ -288,7 +288,7 @@ We are proposing a system that heavily depends on choosing the correct architect
         </p>
         <ol>
             <li>
-                Southgate Manager: - this sub-module is responsible for handling all the requirements related to the Southgate Manager role. These include logging in in the system, retrieving orders at 1PM and printing labels. 
+                Southgate Manager: - this sub-module is responsible for handling all the requirements related to the Southgate Manager role. These include logging-in in the system, retrieving orders at 1PM and printing labels. 
             </li>
             <li>
                 Food App: - The food applications app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor. 
@@ -330,15 +330,19 @@ We are proposing a system that heavily depends on choosing the correct architect
         </p>
         <ol>
             <li>
+                Dining Hall Manager: - 
+                This sub-module is responsible for handling all the requirements related to the Dining Hall Manager Role. These include logging in in the system, retrieving orders from different food stalls inside respective dining halls and submitting the consolidated order in the food app before 1 PM.
             </li>
             <li>
+                Food App: - 
+Similar to the Southgate Manager module, the food app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor.  
+
             </li>
+            
             <li>
+                Database: - In the database, we will store the Manager Table which will contain all the necessary information for each Manager including Southgate Manager. Apart from that, we will have a table Product List which will contain all the active products which could be added to the updated product list. If there are any special orders, after checking the product list, Dining Hall Manager will request the Southgate. 
             </li>
-            <li>
-            </li>
-            <li>
-            </li>
+      
         </ol>
 
         <div style="display: flex; justify-content: center">
@@ -350,7 +354,7 @@ We are proposing a system that heavily depends on choosing the correct architect
         </div>
         <br>
         <p>
-            Sequence diagram text goes here
+            The Dining Hall Manager needs to verify himself before logging in the system. Oauth 2.0 will be used to verify the manager credentials in the backend by the system. Once he is successfully logged in, he will have access to the 2 HTML forms within the system. HTMLA and HTMLB. HTMLA will be used for placing the orders to the southgate. If he has any add ons or special requests, a dedicated section will be provided in the HTMLA form, where he can write comments for special requests. EVeryday, Southgate will deliver the previous day’s placed orders in the Morning. Once the orders have been received in each of the dining halls, they will verify the respective orders and then, the Dining Hall Manager will confirm the delivery of the products using HTMLB form. 
         </p>
 
         <div style="display: flex; justify-content: center">
@@ -373,14 +377,16 @@ We are proposing a system that heavily depends on choosing the correct architect
         </p>
         <ol>
             <li>
+                Vendor: - Vendors will have all the data related to Vendor and will try to manage the Vendor. This will include, Vendor log in, Vendor information etc.
             </li>
             <li>
+                Store: - This module will have all the information about a particular Vendors warehouse unit. What is currently present in the warehouse and stuff related to it. It will make Vendors life easy to check whether he has enough inventory in his warehouse to accept the order. 
             </li>
             <li>
+                Food App: - Similar to the Southgate Manager module, the food app will have different HTML forms which will be used for handling the communication between dining halls, Southgate Manager and Vendor.  
             </li>
             <li>
-            </li>
-            <li>
+                Database: - In the database, we will store the Vendor Table which will contain all the necessary information for each of the Vendors. Each Vendor will have a Store table associated which will store all the information regarding the Vendor’s warehouse. 
             </li>
         </ol>
 
@@ -393,7 +399,7 @@ We are proposing a system that heavily depends on choosing the correct architect
         </div>
         <br>
         <p>
-            Sequence diagram text goes here
+            The Vendor will Login in in the portal. The system will verify his credentials using Oauth 2.0 and once he is verified, he will be allowed in the system. On the Food App portal, Vendor can add and see the notes regarding the previous orders. This will be a basic asynchronous text field where Vendor or Southgate Manager can add notes. After 1PM everyday, Vendor will be notified as soon as the Southgate Manager posts the order for the next day. Vendor can go through the order list for the next day and check if he has the required produce in his warehouse. If he does, he will press the accept the order button. The confirmation will be generated for that particular Vendor (System will use Vendor ID for this) and it will be sent to Southgate Manager. 
         </p>
 
         <div style="display: flex; justify-content: center">
@@ -534,41 +540,51 @@ We are proposing a system that heavily depends on choosing the correct architect
                 <td>DE-2</td>
             </tr>
         </table>
+        </div>
         <br>
         <h3>Design Rationale</h3>
-    <br>
-    <div class="col-md-12">
-
-        <p>
-        </p>
-
         <br>
-        <h5>Function 1: </h5>
-        <p>
-        </p>
-
-        <br>
-        <h5>Function 2: </h5>
-        <p>
-        </p>
-
-        <br>
-        <h5>Function 3: </h5>
-        <p>
-        </p>
-
-        <br>
-        <h5>Function 4: </h5>
-        <p>
-        </p>
-
+        <div class="col-md-12">
+    
+            <p>
+                Centralized Food Ordering system is a website which aims to automate the current manual process at VT dining halls which essentially costs all the dining hall managers about 2-3 hrs everyday. The website essentially will have 3 main components, Front-end, Back-end and Database. These components are essential for the working of all the 3 modules of the system which are Southgate Manager, DIning Halls and Vendor. Front End of the system is basically the UI part of the system through which the user interaction will be taken into the system and computed output will be reflected back on the UI. Database will store all the information required for the working of the website in different table formats. Back-end part of the system will cover the core logic which will compute the necessary output to satisfy all the requirements. 
+    
+    MVT architecture allows the website to satisfy all the functional and non-functional requirements. Functional requirements like FR1, FR2 will need database queries which fall under Model when following MVT pattern. FR3, FR4 will be using database as well as back-end logic which will be using different Views. FR6, FR7, FR8 will be using UI or front end which will be covered in different Templates. Apart from that NFR1 would use back-end as well as database, NFR7, NFR8 will take support from front-end or Templates. Thus, the MVT choice of architecture makes the job more easy and efficient. 
+    
+            </p>
+    
+            <br>
+            <h5>Function 1: Authentication Mechanism</h5>
+            <p>
+                The FR1 and FR2 are related with the user authentication for the food application. User authentication is essential for every website to protect the system from non authenticated use. The authentication mechanism for our system will be based on the OAUTH 2.0 architecture. OAUTH 2.0 is supported under Django which provides inbuilt libraries for implementing the authentication. The database, will have different tables which will contain the necessary information regarding the user. The tables will differ according to roles. I.e Dining Manager table will store the information (Basically Login credentials) related to the Managers of VT dining Halls. Vendor table will contain the information related to Vendors. Whenever, user tries to login, he will have to fill a login form which will ask the user for username and password. This form will be rendered on the Front-end. Once a user presses the submit button, the information will be passed to the backend where the database will be queried to check if the login credentials match the entries present in the respective tables. If it is successful, the user will be redirected to the landing page or else he will get an alert message stating that either password or username is incorrect, please try again. 
+    
+            </p>
+    
+            <br>
+            <h5>Function 2: Ordering Forms</h5>
+            <p>
+                The FR3 and FR4 are related to communicating between Dining Hall and Southgate Manager. The Southgate Manager regularly updates this form to add new products that might be available for dining halls. The database is instantly changed to reflect the new products. It also deletes non required products and the database would delete the product entry. Once the Dining Hall manager opens the form they have the option of requesting the quantity of the product. The database would update the required quantity of the item. When multiple dining halls request the same product, the database sums up the total quantity and returns it to the Southgate Manager. This helps the manager to place the correct quatity of order tot the vendor. Apart from this dining hall managers have the option of requesting southgate to add a new item that isint already available in the database. Here the request product can be directly added to the database by the southgate manager by accepting the request from the dining halls.
+    
+            </p>
+    
+            <br>
+            <h5>Function 3: Retrieving and Placing an Order</h5>
+            <p>
+                The FR5 and FR8 are crucial to playing the order and confirming the order. When the orders are retrieved from the database the Southgate Manager places this order with the vendor. The vendor would receive the total order and they would then send a confirmation of what orders they can fulfill. The database would manage the updates and let the southgate manager know about the expected order. The database would automatically allocate the dining halls with the products and quantity based on the request. It would also print the labels for sending the products to the dining halls. Incase the received quantity is less than the expected quantity, based on daily consumption, the distribution algorithm would automatically assign the products to the dining halls and update the database. The dining hall managers would also be able to confirm the delivery of the product once they receive it.
+            </p>
+    
+            <br>
+            <h5>Function 4: Vendor Portal</h5>
+            <p>
+                The FR6 and FR7 deals with the vendor side of the application. The vendor needs to confirm the receipt of the order and once the vendor confirms that the portal would reflect the same. As mentioned above the algorith would sort the orders and the database would reflect the same. It would also assist in communicating between vendor and Southgate Manager for providing notes and comments on the products. All these would be stored in our database. 
+            </p>
+        </div>
         <br>
         <h3>Conclusion</h3>
 
         <div class="col-md-12">
             <p>
-                Centralized Food Ordering System is a system dedicated to VT Dining halls and Vendors interested to sell their products to VT Dining Services. This system automates the ordering process thereby reducing the manual workload of Managers and Vendors. The system has 3 dedicated modules i.e. Southgate Module, Vendor Module and Dining Hall module. Each of these modules cater to different intended users.         </p>
-    
+                Centralized Food Ordering System is a system dedicated to VT Dining halls and Vendors interested to sell their products to VT Dining Services. This system automates the ordering process thereby reducing the manual workload of Managers and Vendors. The system has 3 dedicated modules i.e. Southgate Module, Vendor Module and Dining Hall module. Each of these modules cater to different intended users. The architecture that was followed by us for designing the system is MVT architectural design. The MVT architecture gives flexibility to integrate all the modules under one umbrella and seamless interaction between them. Model is where we store the database, View is used to write back-end logic and Templates will be HTML files which will be used in the front-end. MVT architecture makes our website work faster, efficient and well suited for vertical scaling in the future.     
             <div style="display: flex; justify-content: flex-start">
                 <a href="designRationale.html">Previous: Design Rationale</a>
             </div>
