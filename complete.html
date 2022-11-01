@@ -53,6 +53,28 @@ ul.horizontal li a.active {
     background-color:#04AA6D;
 }
 
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+.head-table {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 
         </style>
 </head>
@@ -412,132 +434,97 @@ Similar to the Southgate Manager module, the food app will have different HTML f
         <br>
         <h5>Traceability Matrix</h5>
         <br>
-        <table class="table table-condensed table-striped">
-            <tr>
-                <td><b>Functional Requirements</b></td>
-                <td><b>Category</b></td>
-                <td><b>Requirement ID</b></td>
+        <table>
+            <tr class="head-table">
+                <td><b>Requirements</b></td>
+                 <td><b>Requirement ID</b></td>
                 <td><b>Design ID</b></td>
             </tr>
             <tr>
-                <td></td>
-                <td>Operational</td>
+                <td><b>Functional Requirements</b></td>
                 <td>FR-1</td>
-                <td>DE-3</td>
+                <td>DE-1, DE-2, DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>FR-2</td>
-                <td>DE-3</td>
+                <td>DE-2</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>FR-3</td>
-                <td>DE-1</td>
+                <td>DE-1, DE-2</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>FR-4</td>
-                <td>DE-1</td>
+                <td>DE-2</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>FR-5</td>
                 <td>DE-1</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>FR-6</td>
                 <td>DE-1</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Image Handling</td>
                 <td>FR-7</td>
-                <td>DE-2</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Image Handling</td>
-                <td>FR-8</td>
-                <td>DE-2</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Image Handling</td>
-                <td>FR-9</td>
-                <td>DE-2</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Operational</td>
-                <td>FR-10</td>
-                <td>DE-12</td>
-            </tr>
-            <tr>
-                <td><b>Non-Functional Requirements</b></td>
-                <td>Operational</td>
-                <td>NFR-1</td>
-                <td>DE-1, DE-2, DE-3</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Operational</td>
-                <td>NFR-2</td>
                 <td>DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
+                <td>FR-8</td>
+                <td>DE-2</td>
+            </tr>
+
+            <tr>
+                <td><b>Non-Functional Requirements</b></td>
+                <td>NFR-1</td>
+                <td>DE-1</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>NFR-2</td>
+                <td>DE-1, DE-3</td>
+            </tr>
+            <tr>
+                <td></td>
                 <td>NFR-3</td>
                 <td>DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>NFR-4</td>
-                <td>DE-4</td>
+                <td>DE-2</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>NFR-5</td>
-                <td>DE-1</td>
+                <td>DE-1, DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>NFR-6</td>
-                <td>DE-3</td>
+                <td>DE-1, DE-2, DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Image Handling</td>
                 <td>NFR-7</td>
-                <td>DE-2</td>
+                <td>DE-1, DE-2, DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Image Handling</td>
                 <td>NFR-8</td>
-                <td>DE-2</td>
+                <td>DE-1, DE-2, DE-3</td>
             </tr>
             <tr>
                 <td></td>
-                <td>Operational</td>
                 <td>NFR-9</td>
                 <td>DE-1</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Image Handling</td>
-                <td>NFR-10</td>
-                <td>DE-2</td>
             </tr>
         </table>
         </div>
